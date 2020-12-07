@@ -5,6 +5,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion 30
     buildToolsVersion "30.0.2"
+    ndkVersion "21.3.6528147"
 
     defaultConfig {
         applicationId "id.ac.ui.cs.mobileprogramming.irfanazizalamin.helloworld"
@@ -20,6 +21,13 @@ android {
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    externalNativeBuild {
+        cmake {
+            path "src/main/c/CMakeLists.txt"
+            version "3.10.2"
         }
     }
 }
